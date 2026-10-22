@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvynvdkmwyh56"]
+
+[ext_resource type="Script" uid="uid://x6ha2v3oubss" path="res://mundo.gd" id="1"]
+[ext_resource type="PackedScene" path="res://jugador.tscn" id="2"]
+
+[node name="Mundo" type="Node2D" unique_id=1296283364]
+script = ExtResource("1")
+
+[node name="Mapa" type="Node2D" parent="." unique_id=1299911855]
+
+[node name="Pajaro" parent="." unique_id=725064208 instance=ExtResource("2")]
+position = Vector2(160, 320)

@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://4f40moc2syaa"]
+
+[ext_resource type="AudioStream" uid="uid://b7erbuu0cc88u" path="res://assets/aleteo.wav" id="3_8o684"]
+[ext_resource type="AudioStream" uid="uid://br1c4rn6ja08v" path="res://assets/golpe.wav" id="4_ukil5"]
+[ext_resource type="Script" uid="uid://6y4eblf8l4fu" path="res://jugador.gd" id="s"]
+[ext_resource type="Texture2D" uid="uid://c0fgq5o8nbnsr" path="res://assets/pajaro_hoja.png" id="t0"]
+
+[sub_resource type="AtlasTexture" id="A0_0"]
+atlas = ExtResource("t0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_1"]
+atlas = ExtResource("t0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_2"]
+atlas = ExtResource("t0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_3"]
+atlas = ExtResource("t0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7st5j"]
+atlas = ExtResource("t0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvhml"]
+atlas = ExtResource("t0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btb33"]
+atlas = ExtResource("t0")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw2bf"]
+atlas = ExtResource("t0")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5h5a"]
+atlas = ExtResource("t0")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2m60"]
+atlas = ExtResource("t0")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_4"]
+atlas = ExtResource("t0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_A0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("A0_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_3")
+}],
+"loop": true,
+"name": &"aletear",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7st5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvhml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btb33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw2bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5h5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2m60")
+}],
+"loop": false,
+"name": &"morir",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("A0_4")
+}],
+"loop": false,
+"name": &"planear",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="Forma"]
+radius = 18.0
+
+[node name="Pajaro" type="CharacterBody2D" unique_id=1915098343]
+script = ExtResource("s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1894840258]
+sprite_frames = SubResource("SpriteFrames_A0")
+animation = &"morir"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2034674761]
+shape = SubResource("Forma")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=60520182]
+
+[node name="Aleteo" type="AudioStreamPlayer2D" parent="." unique_id=1245070329]
+stream = ExtResource("3_8o684")
+
+[node name="Golpe" type="AudioStreamPlayer" parent="." unique_id=1197447827]
+stream = ExtResource("4_ukil5")
